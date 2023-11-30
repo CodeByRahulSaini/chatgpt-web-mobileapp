@@ -51,10 +51,36 @@ const LINKS = [
 ];
 
 export default function Page(): JSX.Element {
+  const HistoryItem = ()=> <button className="p-2 flex">React code examples</button> 
+  const MessageItem = ()=> <div className="p-2 my-3  rounded-sm ">
+    <p>
+      <b>{ Math.random()>0.5 ? 'You' : "ChatGPT"}</b>
+    </p>
+    <pre>
+      React code examples
+    </pre>
+    </div> 
   return (
-    <main className={styles.main}>
+    <>
+    
+    <main className={'flex flex-row h-full'}>
+      {/* <header className="text-center p-2 absolute w-full bg-gradient-to-bl ">
+        CHAT GPT
+      </header> */}
+      <div className="flex-1 h-full overflow-y-auto p-5">
+        {[1,2,3,3,4,4,5,1,2,3,3,4,4,5,1,2,3,3,4,4,5,2,3,3,4,4,5,1,2,3,3,4,4,5].map(o=><HistoryItem />)}
+      </div>
+      <div className="flex-[6] h-full flex flex-col    bg-zinc-600   ">
+        <div className="overflow-y-auto flex-[6] w-[60%] self-center ">
+          {[1,2,3,3,4,4,5,1,2,3,3,4,4,5,1,2,3,3,4,4,5,2,3,3,4,4,5,1,2,3,3,4,4,5].map(o=><MessageItem />)}
+        </div>
+        <div className="flex-1  flex justify-center items-start p-2  ">
+          <input className="w-[60%] p-2 rounded-md" />
+        </div>
+      </div>
+{/*       
       <div className={styles.description}>
-        <p>
+        <p className="text-3xl font-bold underline">
           examples/basic&nbsp;
           <Code className={styles.code}>web</Code>
         </p>
@@ -131,7 +157,8 @@ export default function Page(): JSX.Element {
             {description}
           </Card>
         ))}
-      </div>
+      </div> */}
     </main>
+    </>
   );
 }
